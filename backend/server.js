@@ -195,7 +195,7 @@ app.post("/save-booking", async (req, res) => {
 /* =============================
    BOOKING RETRIEVAL
 ============================= */
-app.get("/bookings/:userId", async (req, res) => {
+app.get("/bookings/:userId", async(req, res) => {
   try {
     const bookings = await Booking.find({ userId: req.params.userId })
       .populate('tourId')
