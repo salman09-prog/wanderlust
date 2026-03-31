@@ -24,8 +24,8 @@ app.use(cors({ origin: FRONTEND_URL }));
 app.use(express.json());
 
 // Routes
-app.use("/api/auth", authRoutes);
-app.use("/api/tours", tourRoutes);
+app.use("/auth", authRoutes);
+app.use("/tours", tourRoutes);
 
 /* =============================
    MongoDB Connection
@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.post("/api/create-checkout-session", async (req, res) => {
+app.post("/create-checkout-session", async (req, res) => {
   try {
     const { tourId, guests, userId, startDate, endDate, amount, applyPoints, itemName, itemImage } = req.body;
 
@@ -195,7 +195,7 @@ app.post("/save-booking", async (req, res) => {
 /* =============================
    BOOKING RETRIEVAL
 ============================= */
-app.get("/bookings/:userId", async(req, res) => {
+app.get("/bookings/:userId", async (req, res) => {
   try {
     const bookings = await Booking.find({ userId: req.params.userId })
       .populate('tourId')
@@ -221,7 +221,7 @@ app.get("/bookings", async (req, res) => {
 /* =============================
    MOCK SEARCH APIS (FLIGHTS/HOTELS)
 ============================= */
-app.get("/api/flights/search", (req, res) => {
+app.get("/flights/search", (req, res) => {
   const { origin, destination, date } = req.query;
   if (!origin || !destination) return res.status(400).json({ error: "Origin and destination required" });
 
@@ -247,7 +247,7 @@ app.get("/api/flights/search", (req, res) => {
   res.json(flights.sort((a, b) => a.price - b.price));
 });
 
-app.get("/api/hotels/search", (req, res) => {
+app.get("/hotels/search", (req, res) => {
   const { destination } = req.query;
   if (!destination) return res.status(400).json({ error: "Destination required" });
 
