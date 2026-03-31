@@ -41,6 +41,12 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 /* =============================
    CREATE CHECKOUT SESSION
 ============================= */
+
+app.get("/", (req, res) => {
+  res.send("Wanderlust API is running...");
+});
+
+
 app.post("/api/create-checkout-session", async (req, res) => {
   try {
     const { tourId, guests, userId, startDate, endDate, amount, applyPoints, itemName, itemImage } = req.body;
