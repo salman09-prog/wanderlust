@@ -33,16 +33,18 @@ export default function MyBookings() {
       setLoading(false);
       return;
     }
-
-    API.get(`/bookings/${user._id}`)
+API.get(`/bookings/${user._id}`)
       .then((res) => {
         setBookings(res.data);
+        console.log(res.data)
         setLoading(false);
       })
       .catch((err) => {
         console.error(err);
         setLoading(false);
       });
+
+
   }, [user]);
 
   if (loading) {
