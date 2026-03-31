@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api", // backend later
+  baseURL: "https://wanderlust-lprk.onrender.com/api", // backend later
 });
 
 API.interceptors.request.use((req) => {

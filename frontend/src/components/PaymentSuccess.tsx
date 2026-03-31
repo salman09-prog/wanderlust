@@ -15,7 +15,7 @@ export default function PaymentSuccess() {
       return;
     }
 
-    fetch("http://localhost:5000/save-booking", {
+    fetch("https://wanderlust-lprk.onrender.com/save-booking", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

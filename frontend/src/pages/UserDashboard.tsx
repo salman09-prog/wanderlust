@@ -55,7 +55,7 @@ const UserDashboard = () => {
     if (user) {
       const fetchBookings = async () => {
         try {
-          const res = await API.get(`http://localhost:5000/bookings/${user._id}`);
+          const res = await API.get(`https://wanderlust-lprk.onrender.com/bookings/${user._id}`);
           const data: Booking[] = res.data;
           setBookings(data);
 
