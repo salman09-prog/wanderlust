@@ -42,7 +42,7 @@ const FlightSearchWidget: React.FC<FlightSearchWidgetProps> = ({ destinationCity
         setFlights([]);
 
         try {
-            const response = await fetch(`https://wanderlust-lprk.onrender.com/api/flights/search?origin=${encodeURIComponent(departure)}&destination=${encodeURIComponent(destinationCity)}&date=${date}`);
+            const response = await fetch(`https://wanderlust-lprk.onrender.com/flights/search?origin=${encodeURIComponent(departure)}&destination=${encodeURIComponent(destinationCity)}&date=${date}`);
             if (response.ok) {
                 const data = await response.json();
                 setFlights(data);

@@ -72,7 +72,7 @@ const HotelsPage: React.FC = () => {
     setHotels([]);
     try {
       const res = await fetch(
-        `https://wanderlust-lprk.onrender.com/api/hotels/search?destination=${encodeURIComponent(destination)}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
+        `https://wanderlust-lprk.onrender.com/hotels/search?destination=${encodeURIComponent(destination)}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
       );
       if (res.ok) setHotels(await res.json());
       else toast({ title: 'Search failed', description: 'Could not reach the hotel API.', variant: 'destructive' });

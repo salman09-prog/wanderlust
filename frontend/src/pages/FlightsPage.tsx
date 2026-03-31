@@ -65,7 +65,7 @@ const FlightsPage: React.FC = () => {
     setFlights([]);
     try {
       const res = await fetch(
-        `https://wanderlust-lprk.onrender.com/api/flights/search?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&date=${date}`
+        `https://wanderlust-lprk.onrender.com/flights/search?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&date=${date}`
       );
       if (res.ok) setFlights(await res.json());
       else toast({ title: 'Search failed', description: 'Could not reach the flight API.', variant: 'destructive' });

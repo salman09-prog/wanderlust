@@ -43,7 +43,7 @@ const HotelSearchWidget: React.FC<HotelSearchWidgetProps> = ({ destinationCity }
         setHotels([]);
 
         try {
-            const response = await fetch(`https://wanderlust-lprk.onrender.com/api/hotels/search?destination=${encodeURIComponent(destinationCity)}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`);
+            const response = await fetch(`https://wanderlust-lprk.onrender.com/hotels/search?destination=${encodeURIComponent(destinationCity)}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`);
             if (response.ok) {
                 const data = await response.json();
                 setHotels(data);
