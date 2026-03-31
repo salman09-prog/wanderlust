@@ -5,6 +5,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import SearchBox from '@/components/shared/SearchBox';
 import { useAuth } from '@/context/AuthContext';
+import { useState } from 'react';
 
 const Navbar = () => {
   const isMobile = useIsMobile();
